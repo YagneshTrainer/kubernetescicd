@@ -42,7 +42,7 @@ jobs:
         aws-region: ap-south-1
 
     - name: Updates EKS Kubeconfig FIle to Set EKSCLUSTER
-      run: aws eks update-kubeconfig --name cicd-lab --region ap-south-1
+      run: aws eks update-kubeconfig --name cicd --region ap-south-1
 
     - name: Rolling Update with deployment
       run: kubectl set image deployment/reviewapp reviewapp=${{ secrets.DOCKER_USERNAME }}/reviewapp:${{ github.run_number }}
