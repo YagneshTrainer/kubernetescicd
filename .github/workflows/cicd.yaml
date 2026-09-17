@@ -45,5 +45,5 @@ jobs:
       run: aws eks update-kubeconfig --name cicd --region ap-south-1
 
     - name: Rolling Update with deployment
-      run: kubectl set image deployment/reviewapp reviewapp=${{ secrets.DOCKER_USERNAME }}/reviewapp:${{ github.run_number }}
+      run: kubectl set image deployment/bluereviewapp reviewapp=${{ secrets.DOCKER_USERNAME }}/reviewapp:${{ github.run_number }}
 
