@@ -1,0 +1,23 @@
+name: Kubernetes CICD-pipeline
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        disrtibution: temurin
+        java-version: '17'
+
+    - name: Build source code
+      run: mvn clean install -DskipTests
